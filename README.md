@@ -1,4 +1,4 @@
-##README
+## README
 The files ```giving_permissions.py``` file should be run only once. 
 On terminal 
 run the following commands
