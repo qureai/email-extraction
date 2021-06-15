@@ -31,7 +31,8 @@ print("\n \n \n ----------------Inbox Mail details----------------\n")
 
 inbox = mailbox.inbox_folder()
 
-for message in inbox.get_messages(limit=10000000):
+for message in inbox.get_messages(limit=1
+                                  000000000):
     x+=1
     #print(message.subject)
     #print("To --",message.to)
@@ -49,7 +50,7 @@ print("\n \n \n ----------------Sent Mail details----------------\n")
 
 sent_folder = mailbox.sent_folder()
 
-for message in sent_folder.get_messages(limit=10000000):
+for message in sent_folder.get_messages(limit=1000000000):
     y+=1
     #print(message.subject)
     #print("To --",message.to)
