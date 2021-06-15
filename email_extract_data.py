@@ -31,7 +31,7 @@ print("\n \n \n ----------------Inbox Mail details----------------\n")
 
 inbox = mailbox.inbox_folder()
 
-for message in inbox.get_messages():
+for message in inbox.get_messages(limit=10000000):
     x+=1
     #print(message.subject)
     #print("To --",message.to)
@@ -49,7 +49,7 @@ print("\n \n \n ----------------Sent Mail details----------------\n")
 
 sent_folder = mailbox.sent_folder()
 
-for message in sent_folder.get_messages():
+for message in sent_folder.get_messages(limit=10000000):
     y+=1
     #print(message.subject)
     #print("To --",message.to)
@@ -72,3 +72,11 @@ df = pd.DataFrame(data, columns = ['Username', 'Email','Only Sent']) #creating a
 df = df.drop_duplicates(subset=['Username','Email'],keep = 'first') #removing duplicate rows
 df.to_csv('file_name.csv', index=False)
 df.to_excel('Name and Emails.xls','Sheet1',index=False)
+'''
+for i in range(50): 
+    m = account.new_message() #creates a new mail draft
+    m.to.add('arka.das@qure.ai') #takes the email id from our file
+    m.subject = 'Hope you liked the demo' #subject of the mail
+    m.body = "Hi This is Arka, touch and figure out what your exact requirement is." 
+    m.send() # sending the mail and the loop repeats for all the selected customers #do uncomment the line for sending
+'''
