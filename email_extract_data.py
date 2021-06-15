@@ -24,46 +24,47 @@ account = Account(credentials, tenant_id = tenant_id)
 data=[] #this will store all usernames and email addresses
 data_sent=[]
 mailbox = account.mailbox()
-
-print("\n \n \n ----------------Inbox Mail details----------------")
+x=0
+y=0
+print("\n \n \n ----------------Inbox Mail details----------------\n")
 
 
 inbox = mailbox.inbox_folder()
 
 for message in inbox.get_messages():
-    
-    print(message.subject)
-    print("To --",message.to)
+    x+=1
+    #print(message.subject)
+    #print("To --",message.to)
     for recipient in message.to._recipients:
         data.append([str(recipient._name),str(recipient._address),'N'])
 
-    print("Cc --",message.cc)
+    #print("Cc --",message.cc)
     for recipient in message.cc._recipients:
         data.append([str(recipient._name),str(recipient._address),'N'])
-    print("Sender --")
+    #print("Sender --")
     data.append([str(message.sender._name),str(message.sender._address),'N'])
     
-
-print("\n \n \n ----------------Sent Mail details----------------")
+print(x)
+print("\n \n \n ----------------Sent Mail details----------------\n")
 
 sent_folder = mailbox.sent_folder()
 
 for message in sent_folder.get_messages():
-    print(message.subject)
-    print("To --",message.to)
+    y+=1
+    #print(message.subject)
+    #print("To --",message.to)
     
     for recipient in message.to._recipients:
         data.append([str(recipient._name),str(recipient._address),'Y'])
 
-    print("Cc --",message.cc)    
+    #print("Cc --",message.cc)    
     for recipient in message.cc._recipients:
         data.append([str(recipient._name),str(recipient._address),'Y'])
 
-    print("Bcc --",message.bcc)
+    #print("Bcc --",message.bcc)
     for recipient in message.bcc._recipients:
         data.append([str(recipient._name),str(recipient._address),'Y'])
-
-    
+print(y)    
 
 
 
