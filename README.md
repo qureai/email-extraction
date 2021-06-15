@@ -5,6 +5,7 @@ run the following commands
 
 These commands should be run only the first time
 ```
+pip install xlwt
 pip install O365
 pip install pandas
 python giving_permissions.py 'client_id' 'client_secret' 'tenant_id'
