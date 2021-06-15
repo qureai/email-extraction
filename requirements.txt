@@ -1,0 +1,3 @@
+pandas
+O365
+xlwt
