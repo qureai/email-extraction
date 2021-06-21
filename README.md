@@ -1,4 +1,13 @@
-## README
+# Automated Extraction from Emails
+This repo contains the scripts and the procedure for Qure users to extract all the Usernames and Email address from the CC, To , from in the inbox and To, cc,bcc from the sentbox in the MS-Outlook mailbox. 
+
+These details shall be extracted in a .csv and .xlsx format and stored in the system. The files shall contain a column beside the username and email address having a parameter 'Y' or 'N' which says whether the person is only present in sent mails or in the inbox too respectively.
+
+
+## User guide
+
+### Giving authorizations to the api
+
 The files ```giving_permissions.py``` file should be run only once. 
 Run the following commands on the terminal of your machine.
 
