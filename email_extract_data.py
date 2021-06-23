@@ -77,7 +77,7 @@ print(y)
 
 
 df = pd.DataFrame(data, columns = ['Username', 'Email','Only Sent']) #creating a pandas dataframe
-#df = df.drop_duplicates(subset=['Username','Email'],keep = 'first') #removing duplicate rows
+df = df.drop_duplicates(subset=['Username','Email'],keep = 'first') #removing duplicate rows
 df.to_csv('file_name.csv', index=False)
 df.to_excel('Name and Emails.xls','Sheet1',index=False)
 '''

@@ -541,7 +541,7 @@ class Pagination(ApiComponent):
         self.next_link = data.get(NEXT_LINK_KEYWORD, None) or None
         data = data.get('value', [])
         time.sleep(0.2)
-        #print(2,len(list(self.data)))
+        print("Going on...300 more mails processed")
 
         if self.constructor:
             # Everything  from cloud must be passed as self._cloud_data_key
