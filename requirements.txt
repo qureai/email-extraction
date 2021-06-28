@@ -2,3 +2,6 @@ pandas
 xlwt
 requests
 oauthlib
+requests oauthlib
+stringcase
+bs4
