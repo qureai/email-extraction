@@ -1,7 +1,7 @@
 # Automated Extraction from Emails
 This repo contains the scripts and the procedure for outlook 365 users to extract all the Usernames and Email address from the CC, To , from in the inbox and To, cc,bcc from the sentbox in the MS-Outlook mailbox. 
 
-These details shall be extracted in a .csv and .xlsx format and stored in the system. The files shall contain a column beside the username and email address having a parameter 'Y' or 'N' which says whether the person is only present in sent mails or in the inbox too respectively.
+These details shall be extracted in a .csv and .xlsx formats and separated in two files to differenciate email addresses internal and external to the organization. The files shall contain a column beside the username and email address having a parameter 'Y' or 'N' which says whether the person is only present in sent mails or in the inbox too respectively.
 
 
 ## User guide
@@ -13,7 +13,7 @@ Run the following commands on the terminal of your machine.
 
 These commands should be run only the first time.
 ```
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
 python giving_permissions.py 'client_id' 'client_secret' 'tenant_id'
 ````
@@ -40,7 +40,13 @@ If upto this correctly done the user can proceed below.
 
 
 ### Extraction of email usernames and addresses 
-After that anytime we want to extract, the file *email_extract_data.py* will extract and store the unique usernames and emails in .xls and .csv format in *Name and Emails.xls* and *file_name.csv*.
+After that anytime we want to extract, the file *email_extract_data.py* will extract and store the unique usernames and emails in .xls and .csv format in *Name and Emails(all).xls* and *Name and Emails(all).csv*.
+
+*Name and Emails(internal).csv* and *Name and Emails(internal).xls* contains the username and email-ids which are internal to the organization i.e. of the form @qure.ai.
+
+*Name and Emails(external).csv* and *Name and Emails(external).xls* contains the username and email-ids which are external to the organization i.e.  **not** of the form @qure.ai.
+
+
 ```
 python email_extract_data.py 'client_id' 'client_secret' 'tenant_id'
 ```
