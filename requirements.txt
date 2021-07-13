@@ -5,3 +5,4 @@ oauthlib
 requests oauthlib
 stringcase
 bs4
+regex
