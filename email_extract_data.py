@@ -1,7 +1,10 @@
+
 from O365 import Account
 import pandas as pd
 import argparse
 import time
+import re
+
 parser = argparse.ArgumentParser()
 parser.add_argument("client_id", type=str,
                     help="Enter client-id here")
@@ -34,7 +37,7 @@ print("\n \n \n ----------------Inbox Mail details----------------\n")
 inbox = mailbox.inbox_folder()
 
 seconds = time.time()
-for message in inbox.get_messages(limit=100000000,batch=700):
+for message in inbox.get_messages(limit=10000000000,batch=700):
     x+=1
     #print(message.subject)
     #print("To --",message.to)
@@ -58,7 +61,7 @@ print("\n \n \n ----------------Sent Mail details----------------\n")
 sent_folder = mailbox.sent_folder()
 
 
-for message in sent_folder.get_messages(limit=100000000,batch=700):
+for message in sent_folder.get_messages(limit=10000000000,batch=700):
     y+=1
     #print(message.subject)
     #print("To --",message.to)
@@ -76,11 +79,24 @@ for message in sent_folder.get_messages(limit=100000000,batch=700):
 print(y)  
 
 
-
 df = pd.DataFrame(data, columns = ['Username', 'Email','Only Sent']) #creating a pandas dataframe
+
+r= re.compile(r".*qure.ai")
+
+#print(df.Email.apply(lambda x: bool(r.match(x))) )
+
 df = df.drop_duplicates(subset=['Username','Email'],keep = 'first') #removing duplicate rows
-df.to_csv('file_name.csv', index=False)
-df.to_excel('Name and Emails.xls','Sheet1',index=False)
+df_internal=df[df.Email.apply(lambda x: bool(r.match(x)))]
+df_external=df[df.Email.apply(lambda x: bool(not r.match(x)))]
+
+df.to_csv('Name and Emails(all).csv', index=False)
+df.to_excel('Name and Emails(all).xls','Sheet1',index=False)
+
+df_internal.to_csv('Name and Emails(internal).csv', index=False)
+df_internal.to_excel('Name and Emails(internal).xls','Sheet1',index=False)
+
+df_external.to_csv('Name and Emails(external).csv', index=False)
+df_external.to_excel('Name and Emails(external).xls','Sheet1',index=False)
 '''
 for i in range(6000): 
     m = account.new_message() #creates a new mail draft
