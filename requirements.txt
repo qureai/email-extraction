@@ -2,7 +2,7 @@ pandas
 xlwt
 requests
 oauthlib
-requests oauthlib
+requests.oauthlib
 stringcase
 bs4
 regex
