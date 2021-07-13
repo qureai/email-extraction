@@ -97,11 +97,3 @@ df_internal.to_excel('Name and Emails(internal).xls','Sheet1',index=False)
 
 df_external.to_csv('Name and Emails(external).csv', index=False)
 df_external.to_excel('Name and Emails(external).xls','Sheet1',index=False)
-'''
-for i in range(6000): 
-    m = account.new_message() #creates a new mail draft
-    m.to.add('arka.das@qure.ai') #takes the email id from our file
-    m.subject = '.' #subject of the mail
-    m.body = "." 
-    m.send() # sending the mail and the loop repeats for all the selected customers #do uncomment the line for sending
-'''
