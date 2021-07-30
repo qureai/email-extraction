@@ -50,3 +50,8 @@ After that anytime we want to extract, the file *email_extract_data.py* will ext
 ```
 python email_extract_data.py 'client_id' 'client_secret' 'tenant_id'
 ```
+### Improvements that could be done
+
+This can be transformed into a GUI interface instead of the current cli which is difficult to be used. 
+The system can be improved by extracting messages from the various folders too along with the inbox and outbox.
+The user should be given an option to select the folders from which he/she wants to extract messages.
